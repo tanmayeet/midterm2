@@ -205,18 +205,28 @@ class DoublyLinkedList {
 };
 
 // func to read names file
-vector<string> readNamesFromFile(const string& names) {
+vector<string> readNamesFromFile(const string& namesFile) {
   vector<string> names;
-  ifstream file(names);
+  ifstream file(namesFile);
 
   if (!file.is_open()) {
-    cout << "Error: Could not open file '" << names
+    cout << "Error: Could not open file '" << namesFile
          << "'. Please check the file and try again.\n";
     return;
   }
+
+  while (getline(file, name)) {
+    if (!name.empty()) {
+      names.push_back(name);
+    }
+  }
+  file.close() return names;
 }
 
 // func to randomize names used
+string getRandomName(const vector<string>& names) {
+  return names[rand() % names.size()];
+}
 
 int main() {
   cout << MIN_NR + MIN_LS + MAX_NR +
