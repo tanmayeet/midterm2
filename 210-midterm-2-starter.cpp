@@ -22,6 +22,7 @@ class DoublyLinkedList {
 
   Node* head;
   Node* tail;
+  int size = 0;
 
  public:
   DoublyLinkedList() {
@@ -126,6 +127,7 @@ class DoublyLinkedList {
       newNode->prev = tail;
       tail = newNode;
     }
+    size++;
   }
 
   void push_front(string name) {
@@ -137,6 +139,7 @@ class DoublyLinkedList {
       head->prev = newNode;
       head = newNode;
     }
+    size++;
   }
 
   void pop_front() {
@@ -153,6 +156,7 @@ class DoublyLinkedList {
     } else
       head = tail = nullptr;
     delete temp;
+    size--;
   }
 
   void pop_back() {
@@ -168,6 +172,7 @@ class DoublyLinkedList {
     } else
       head = tail = nullptr;
     delete temp;
+    size--;
   }
 
   ~DoublyLinkedList() {
@@ -204,17 +209,19 @@ class DoublyLinkedList {
   }
   string frontInLine() const {
     if (!head) {
-      cout << "No one is in line.";
+      return "No one is in line.";
     }
     return head->name;
   }
 
   string backInLine() const {
     if (!tail) {
-      cout << "No one is in line";
+      return "No one is in line";
     }
     return tail->name;
   }
+
+  int getSize() const { return size; }
 };
 
 // func to read names file
@@ -270,28 +277,28 @@ int main() {
     cout << "Time step #" << min << ":" << endl;
     int prob = rand() % 100 + 1;  // returns random number 1-100
 
-    if (prob <= 40) {
+    if (prob <= 40 && list.getSize() > 0) {
       cout << list.frontInLine() << " is served\n";
       list.pop_front();
     }
 
-    if (prob <= 60) {
+    if (prob <= 60 && list.getSize() > 0) {
       string name = getRandomName(names);
       cout << name << " joined the line\n";
       list.push_back(name);
     }
 
-    if (prob <= 20) {
+    if (prob <= 20 && list.getSize() > 0) {
       cout << list.backInLine() << " (at the rear) left the line\n";
       list.pop_back();
     }
 
-    if (prob <= 10) {
+    if (prob <= 10 && list.getSize() > 0) {
       string name = getRandomName(names);
       cout << name << " left the line\n";
       list.pop_front();
     }
-    if (prob <= 10) {
+    if (prob <= 10 && list.getSize() > 0) {
       string name = getRandomName(names);
       cout << name << " (VIP) joins the front of the line\n";
       list.push_front(name);
