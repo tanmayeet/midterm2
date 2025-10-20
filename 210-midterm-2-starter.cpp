@@ -208,6 +208,13 @@ class DoublyLinkedList {
     }
     return head->name;
   }
+
+  string backInLine() const {
+    if (!tail) {
+      cout << "No one is in line";
+    }
+    return tail->name;
+  }
 };
 
 // func to read names file
@@ -269,6 +276,20 @@ int main() {
     }
 
     if (prob <= 60) {
+      string name = getRandomName(names);
+      cout << name << " joined the line" << endl;
+      list.push_back(name);
+    }
+
+    if (prob <= 20) {
+      cout << list.backInLine() << "(and the rear) left the line" << endl;
+      list.pop_back();
+    }
+
+    if (prob <= 10) {
+      string name = getRandomName(names);
+      cout << name << " left the line" << endl;
+      list.pop_front();
     }
   }
   list.print();
