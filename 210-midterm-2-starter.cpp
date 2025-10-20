@@ -264,9 +264,13 @@ int main() {
     int prob = rand() % 100 + 1;  // returns random number 1-100
 
     if (prob <= 40) {
-      cout << list.frontInLine << " is served";
+      cout << list.frontInLine() << " is served";
+      list.pop_front();
+    }
+
+    if (prob <= 60) {
     }
   }
-
+  list.print();
   return 0;
 }
