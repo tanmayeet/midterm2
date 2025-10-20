@@ -202,6 +202,12 @@ class DoublyLinkedList {
     }
     cout << endl;
   }
+  string frontInLine() const {
+    if (!head) {
+      cout << "No one is in line.";
+    }
+    return head->name;
+  }
 };
 
 // func to read names file
@@ -258,7 +264,7 @@ int main() {
     int prob = rand() % 100 + 1;  // returns random number 1-100
 
     if (prob <= 40) {
-      cout << "";
+      cout << list.frontInLine << " is served";
     }
   }
 
