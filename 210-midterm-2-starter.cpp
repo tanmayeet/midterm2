@@ -217,7 +217,7 @@ vector<string> readNamesFromFile(const string& namesFile) {
 
   string line;
   while (getline(file, line)) {
-    if (line.empty()) {
+    if (!line.empty()) {
       names.push_back(line);
     }
   }
@@ -233,8 +233,20 @@ string getRandomName(const vector<string>& names) {
 }
 
 int main() {
-  cout << MIN_NR + MIN_LS + MAX_NR +
-              MAX_LS;  // dummy statement to avoid compiler warning
+  srand(time(0));
 
+  vector<string> names = readNamesFromFile(namesList);
+  if (names.empty()) {
+    return 1;
+  }
+
+  DoublyLinkedList list;
+
+  cout << "Store opens:" << endl;
+  for (int i = 0; i < 5; ++i) {
+    string name = getRandomName(names);
+    cout << "   " << name << "joins the line" << endl;
+    list.push_back(name);
+  }
   return 0;
 }
