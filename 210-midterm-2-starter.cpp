@@ -212,7 +212,7 @@ vector<string> readNamesFromFile(const string& namesFile) {
   if (!file.is_open()) {
     cout << "Error: Could not open file '" << namesFile
          << "'. Please check the file and try again.\n";
-    return;
+    return names;
   }
 
   string line;
@@ -242,11 +242,18 @@ int main() {
 
   DoublyLinkedList list;
 
+  // When store first opens, we will randomize 5 names from the list as
+  // customers that entered the store when it first opened (or minute 1)
   cout << "Store opens:" << endl;
   for (int i = 0; i < 5; ++i) {
     string name = getRandomName(names);
-    cout << "   " << name << "joins the line" << endl;
+    cout << "   " << name << " joins the line" << endl;
     list.push_back(name);
   }
+
+  // Minute 2-20
+  for (int min = 2; min <= 20; ++min) {
+  }
+
   return 0;
 }
