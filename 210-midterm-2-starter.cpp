@@ -215,18 +215,12 @@ vector<string> readNamesFromFile(const string& namesFile) {
     return;
   }
 
-  while (getline(file, name)) {
-    if (!name.empty()) {
-      names.push_back(name);
-    }
-  }
-  file.close() return names;
+  file.close();
+  return names;
 }
 
 // func to randomize names used
-string getRandomName(const vector<string>& names) {
-  return names[rand() % names.size()];
-}
+string getRandomName(const vector<string>& names) {}
 
 int main() {
   cout << MIN_NR + MIN_LS + MAX_NR +
