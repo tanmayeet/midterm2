@@ -271,27 +271,32 @@ int main() {
     int prob = rand() % 100 + 1;  // returns random number 1-100
 
     if (prob <= 40) {
-      cout << list.frontInLine() << " is served";
+      cout << list.frontInLine() << " is served\n";
       list.pop_front();
     }
 
     if (prob <= 60) {
       string name = getRandomName(names);
-      cout << name << " joined the line" << endl;
+      cout << name << " joined the line\n";
       list.push_back(name);
     }
 
     if (prob <= 20) {
-      cout << list.backInLine() << "(and the rear) left the line" << endl;
+      cout << list.backInLine() << " (at the rear) left the line\n";
       list.pop_back();
     }
 
     if (prob <= 10) {
       string name = getRandomName(names);
-      cout << name << " left the line" << endl;
+      cout << name << " left the line\n";
       list.pop_front();
     }
+    if (prob <= 10) {
+      string name = getRandomName(names);
+      cout << name << " (VIP) joins the front of the line\n";
+      list.push_front(name);
+    }
+    list.print();
   }
-  list.print();
   return 0;
 }
