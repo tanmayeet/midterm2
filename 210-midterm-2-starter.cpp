@@ -183,9 +183,9 @@ class DoublyLinkedList {
       cout << "The line is empty." << endl;
       return;
     }
-    cout << "The line is:" << endl;
+    cout << "   Resulting line:" << endl;
     while (current) {
-      cout << current->name << endl;
+      cout << "     " << current->name << endl;
       current = current->next;
     }
   }
@@ -197,7 +197,7 @@ class DoublyLinkedList {
       return;
     }
     while (current) {
-      cout << current->name << " ";
+      cout << current->name << "        ";
       current = current->prev;
     }
     cout << endl;
@@ -250,12 +250,13 @@ int main() {
     cout << "   " << name << " joins the line" << endl;
     list.push_back(name);
   }
+  list.print();
 
   // Minute 2-20
   for (int min = 2; min <= 20; ++min) {
-    prob = rand() % 100 + 1  // returns random number 1-100
-           if (prob <= 40) {
-      // perform Event A
+    cout << "Time step #" << min << ":" << endl;
+    int prob = rand() % 100 + 1;  // returns random number 1-100
+    if (prob <= 40) {
     }
   }
 
