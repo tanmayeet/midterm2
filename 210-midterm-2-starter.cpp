@@ -10,11 +10,11 @@ const string namesList = "names.txt";
 class DoublyLinkedList {
  private:
   struct Node {
-    int data;
+    string name;
     Node* prev;
     Node* next;
-    Node(int val, Node* p = nullptr, Node* n = nullptr) {
-      data = val;
+    Node(string val, Node* p = nullptr, Node* n = nullptr) {
+      name = val;
       prev = p;
       next = n;
     }
@@ -29,13 +29,13 @@ class DoublyLinkedList {
     tail = nullptr;
   }
 
-  void insert_after(int value, int position) {
+  void insert_after(string name, int position) {
     if (position < 0) {
       cout << "Position must be >= 0." << endl;
       return;
     }
 
-    Node* newNode = new Node(value);
+    Node* newNode = new Node(name);
     if (!head) {
       head = tail = newNode;
       return;
@@ -59,12 +59,12 @@ class DoublyLinkedList {
     temp->next = newNode;
   }
 
-  void delete_val(int value) {
+  void delete_val(string name) {
     if (!head) return;
 
     Node* temp = head;
 
-    while (temp && temp->data != value) temp = temp->next;
+    while (temp && temp->name != name) temp = temp->next;
 
     if (!temp) return;
 
@@ -117,8 +117,8 @@ class DoublyLinkedList {
     delete temp;
   }
 
-  void push_back(int v) {
-    Node* newNode = new Node(v);
+  void push_back(string name) {
+    Node* newNode = new Node(name);
     if (!tail)
       head = tail = newNode;
     else {
@@ -128,8 +128,8 @@ class DoublyLinkedList {
     }
   }
 
-  void push_front(int v) {
-    Node* newNode = new Node(v);
+  void push_front(string name) {
+    Node* newNode = new Node(name);
     if (!head)
       head = tail = newNode;
     else {
@@ -184,7 +184,7 @@ class DoublyLinkedList {
       return;
     }
     while (current) {
-      cout << current->data << " ";
+      cout << current->name << " ";
       current = current->next;
     }
     cout << endl;
@@ -197,7 +197,7 @@ class DoublyLinkedList {
       return;
     }
     while (current) {
-      cout << current->data << " ";
+      cout << current->name << " ";
       current = current->prev;
     }
     cout << endl;
