@@ -180,14 +180,14 @@ class DoublyLinkedList {
   void print() {
     Node* current = head;
     if (!current) {
-      cout << "List is empty." << endl;
+      cout << "The line is empty." << endl;
       return;
     }
+    cout << "The line is:" << endl;
     while (current) {
-      cout << current->name << " ";
+      cout << current->name << endl;
       current = current->next;
     }
-    cout << endl;
   }
 
   void print_reverse() {
@@ -215,12 +215,22 @@ vector<string> readNamesFromFile(const string& namesFile) {
     return;
   }
 
+  string line;
+  while (getline(file, line)) {
+    if (line.empty()) {
+      names.push_back(line);
+    }
+  }
+
   file.close();
   return names;
 }
 
 // func to randomize names used
-string getRandomName(const vector<string>& names) {}
+string getRandomName(const vector<string>& names) {
+  int num = rand() % names.size();
+  return names[num];
+}
 
 int main() {
   cout << MIN_NR + MIN_LS + MAX_NR +
