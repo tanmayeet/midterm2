@@ -256,7 +256,9 @@ int main() {
   for (int min = 2; min <= 20; ++min) {
     cout << "Time step #" << min << ":" << endl;
     int prob = rand() % 100 + 1;  // returns random number 1-100
+
     if (prob <= 40) {
+      cout << "";
     }
   }
 
