@@ -281,28 +281,35 @@ int main() {
     int probLeft = rand() % 100 + 1;      // returns random number 1-100
     int probVIP = rand() % 100 + 1;       // returns random number 1-100
 
-    if (probServed <= 40 && list.getSize() > 0) {
+    const int served = 40;
+    const int joined = 60;
+    const int backLeft = 20;
+    const int left = 10;
+    const int vip = 10;
+    const int empty = 0;
+
+    if (probServed <= served && list.getSize() > empty) {
       cout << list.frontInLine() << " is served\n";
       list.pop_front();
     }
 
-    if (probJoined <= 60 && list.getSize() > 0) {
+    if (probJoined <= joined && list.getSize() > empty) {
       string name = getRandomName(names);
       cout << name << " joined the line\n";
       list.push_back(name);
     }
 
-    if (probBackLeft <= 20 && list.getSize() > 0) {
+    if (probBackLeft <= backLeft && list.getSize() > empty) {
       cout << list.backInLine() << " (at the rear) left the line\n";
       list.pop_back();
     }
 
-    if (probLeft <= 10 && list.getSize() > 0) {
+    if (probLeft <= left && list.getSize() > empty) {
       string name = getRandomName(names);
       cout << name << " left the line\n";
       list.pop_front();
     }
-    if (probVIP <= 10 && list.getSize() > 0) {
+    if (probVIP <= vip && list.getSize() > empty) {
       string name = getRandomName(names);
       cout << name << " (VIP) joins the front of the line\n";
       list.push_front(name);
