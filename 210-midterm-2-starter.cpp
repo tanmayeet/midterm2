@@ -297,6 +297,7 @@ int main() {
       list.push_front(name);
     }
     list.print();
+    cout << endl;
   }
   return 0;
 }
