@@ -5,6 +5,7 @@
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
+const string namesList = "names.txt";
 
 class DoublyLinkedList {
  private:
@@ -204,6 +205,16 @@ class DoublyLinkedList {
 };
 
 // func to read names file
+vector<string> readNamesFromFile(const string& names) {
+  vector<string> names;
+  ifstream file(names);
+
+  if (!file.is_open()) {
+    cout << "Error: Could not open file '" << names
+         << "'. Please check the file and try again.\n";
+    return;
+  }
+}
 
 // func to randomize names used
 
