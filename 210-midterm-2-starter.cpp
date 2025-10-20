@@ -275,30 +275,34 @@ int main() {
   // Minute 2-20
   for (int min = 2; min <= 20; ++min) {
     cout << "Time step #" << min << ":" << endl;
-    int prob = rand() % 100 + 1;  // returns random number 1-100
+    int probServed = rand() % 100 + 1;    // returns random number 1-100
+    int probJoined = rand() % 100 + 1;    // returns random number 1-100
+    int probBackLeft = rand() % 100 + 1;  // returns random number 1-100
+    int probLeft = rand() % 100 + 1;      // returns random number 1-100
+    int probVIP = rand() % 100 + 1;       // returns random number 1-100
 
-    if (prob <= 40 && list.getSize() > 0) {
+    if (probServed <= 40 && list.getSize() > 0) {
       cout << list.frontInLine() << " is served\n";
       list.pop_front();
     }
 
-    if (prob <= 60 && list.getSize() > 0) {
+    if (probJoined <= 60 && list.getSize() > 0) {
       string name = getRandomName(names);
       cout << name << " joined the line\n";
       list.push_back(name);
     }
 
-    if (prob <= 20 && list.getSize() > 0) {
+    if (probBackLeft <= 20 && list.getSize() > 0) {
       cout << list.backInLine() << " (at the rear) left the line\n";
       list.pop_back();
     }
 
-    if (prob <= 10 && list.getSize() > 0) {
+    if (probLeft <= 10 && list.getSize() > 0) {
       string name = getRandomName(names);
       cout << name << " left the line\n";
       list.pop_front();
     }
-    if (prob <= 10 && list.getSize() > 0) {
+    if (probVIP <= 10 && list.getSize() > 0) {
       string name = getRandomName(names);
       cout << name << " (VIP) joins the front of the line\n";
       list.push_front(name);
