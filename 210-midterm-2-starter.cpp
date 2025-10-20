@@ -253,6 +253,10 @@ int main() {
 
   // Minute 2-20
   for (int min = 2; min <= 20; ++min) {
+    prob = rand() % 100 + 1  // returns random number 1-100
+           if (prob <= 40) {
+      // perform Event A
+    }
   }
 
   return 0;
